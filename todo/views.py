@@ -8,6 +8,7 @@ from .models import Todo
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
+
 def home(request):
     return render(request, 'todo/home.html')
 
@@ -46,7 +47,7 @@ def logoutuser(request):
 @login_required
 def createtodo(request):
     if request.method == 'GET':
-        return render(request, 'todo/createtodo.html', {'form':TodoForm()})
+        return render(request, 'todo/createinvite.html', {'form':TodoForm()})
     else:
         try:
             form = TodoForm(request.POST)
