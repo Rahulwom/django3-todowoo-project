@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from .models import Todo
+from .models import Invite
 
-class TodoForm(ModelForm):
+class InviteForm(ModelForm):
     class Meta:
-        model = Todo
+        model = Invite
         fields = ['host_name', 'address', 'important']
