@@ -57,9 +57,9 @@ def create_invite(request):
     else:
         try:
             form = InviteForm(request.POST)
-            newtodo = form.save(commit=False)
-            newtodo.user = request.user
-            newtodo.save()
+            newInvite = form.save(commit=False)
+            newInvite.user = request.user
+            newInvite.save()
             return redirect('current_invites')
         except ValueError:
             return render(request, 'todo/create_invite.html', {'form': InviteForm(), 'error': 'Bad data passed in. Try again.'})

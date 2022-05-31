@@ -1,15 +1,9 @@
-
-
-
-
-
-
 {% extends "todo/base.html" %}
 
 {% block content %}
     <div class="row justify-content-center mt-5">
         <div class="col-md-5">
-            <h2>New Todo</h2>
+            <h2>New Invite</h2>
         </div>
     </div>
     <div class="row justify-content-center mt-5">
@@ -23,14 +17,14 @@
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" name="title" class="form-control" id="title" value="{{ todo.title }}" required>
+                    <input type="text" name="title" class="form-control" id="title" value="{{ invite.title }}" required>
                 </div>
                 <div class="form-group">
                     <label for="memo">Memo</label>
-                    <textarea name="memo" rows="5" class="form-control" id="memo" >{{ todo.memo }}</textarea>
+                    <textarea name="memo" rows="5" class="form-control" id="memo" >{{ invite.memo }}</textarea>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" name="important" class="form-check-input" id="important" {% if todo.important %}checked{% endif %}>
+                    <input type="checkbox" name="important" class="form-check-input" id="important" {% if invite.important %}checked{% endif %}>
                     <label class="form-check-label" for="important">Important</label>
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
@@ -39,13 +33,13 @@
             </form>
         </div>
     </div>
-    {% if todo.datecompleted is None %}
-        <form style='display: none;' method="POST" action="{% url 'completetodo' todo.id %}">
+    {% if invite.datecompleted is None %}
+        <form style='display: none;' method="POST" action="{% url 'complete_invite' invite.id %}">
             {% csrf_token %}
             <button id="complete" type="submit">Complete</button>
         </form>
     {% endif %}
-    <form style='display: none;' method="POST" action="{% url 'deletetodo' todo.id %}">
+    <form style='display: none;' method="POST" action="{% url 'delete_invite' invite.id %}">
         {% csrf_token %}
         <button id="delete" type="submit">Delete</button>
     </form>
