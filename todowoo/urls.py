@@ -21,16 +21,16 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Auth
-    path('signup/', views.signupuser, name='signupuser'),
-    path('login/', views.loginuser, name='loginuser'),
-    path('logout/', views.logoutuser, name='logoutuser'),
+    path('signup/', views.signup_user, name='signup_user'),
+    path('login/', views.login_user, name='login_user'),
+    path('logout/', views.logout_user, name='logout_user'),
 
     # Todos
     path('', views.home, name='home'),
-    path('create/', views.createinvite, name='createtodo'),
-    path('current/', views.currentinvites, name='currentinvites'),
-    path('completed/', views.completedinvites, name='completedinvites'),
-    path('todo/<int:todo_pk>', views.viewinvites, name='viewinvites'),
-    path('todo/<int:todo_pk>/complete', views.completeinvite, name='completeinvite'),
-    path('todo/<int:todo_pk>/delete', views.deleteinvite, name='deleteinvite'),
+    path('create/', views.create_invite, name='create_invite'),
+    path('current/', views.current_invites, name='current_invites'),
+    path('completed/', views.completed_invites, name='completed_invites'),
+    path('todo/<int:todo_pk>', views.view_invites, name='view_invites'),
+    path('todo/<int:todo_pk>/complete', views.complete_invite, name='complete_invite'),
+    path('todo/<int:todo_pk>/delete', views.delete_invite, name='delete_invite'),
 ]
