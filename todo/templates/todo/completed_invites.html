@@ -3,14 +3,14 @@
 {% block content %}
     <div class="row justify-content-center mt-5">
         <div class="col-md-10">
-            <h1>Completed Todos</h1>
+            <h1>Completed Invites</h1>
         </div>
     </div>
     <div class="row justify-content-center mt-5">
         <div class="col-md-10">
             <div class="list-group">
                 {% for invite in invites %}
-                    <a href="{% url 'view_invite' todo.id %}" class="list-group-item list-group-item-action{% if invite.important %} list-group-item-danger{% endif %}"><b>{{ invite.title }}</b> - Completed {{ todo.datecompleted|date:'M j Y H:i' }}</a>
+                    <a href="{% url 'view_invite' invite.id %}" class="list-group-item list-group-item-action{% if invite.important %} list-group-item-danger{% endif %}"><b>{{ invite.title }}</b> - Completed {{ invite.datecompleted|date:'M j Y H:i' }}</a>
                 {% endfor %}
             </div>
         </div>
